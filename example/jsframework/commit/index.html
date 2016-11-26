@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GMP.js topics example</title>
+    <style>
+      #demo {
+        font-family: 'Helvetica', Arial, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: #f66;
+      }
+      li {
+        line-height: 1.5em;
+        margin-bottom: 20px;
+      }
+      .author, .date {
+        font-weight: bold;
+      }
+    </style>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../dist/gmp.js"></script>
+  </head>
+  <body>
+    <div id="demo">
+    </div>
+    <script type="text/html" id="demoTmpl">
+      <h1>cnnodejs.org topic列表</h1>
+      <% pages.forEach(function(b){%>
+        <input type="radio"
+               name="branch"
+               id="<%=b%>"
+               value="<%=b%>"
+               <%=(b == currentPage ? 'checked' : '')%>
+               >
+        <label for="<%=b%>">第<%=b%>页</label>
+      <%})%>
+      <p>zeromike/cnnodejs.org 第<%=currentPage%>页</p>
+      <ul>
+      <% for(var i = 0, len = topics.length; i < len; i++) {%>
+        <%var topic = topics[i];%>
+      <li>
+        <a href="<%='https://cnodejs.org/api/v1/topic/'+topic.id%>" target="_blank" class="commit"><%=topic.id.slice(0, 7)%></a>
+                - <span class="message"><%=topic.title%></span><br>
+                by <span class="author"><%=topic.author.loginname%></span>
+                at <span class="date"><%=topic.create_at%></span>
+                </li>
+                <%}%>
+      </ul>
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>

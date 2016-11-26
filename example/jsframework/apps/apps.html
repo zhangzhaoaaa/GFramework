@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="container">
+        <div id="ca"></div>
+        <div id="cb"></div>
+    </div>
+
+    <script id="catmpl" type="text/html">
+        <%=name%>
+    </script>
+    <script id="cbtmpl" type="text/html">
+            <input type="text" id="name" >
+            <button id="btn">修改</button>
+    </script>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../dist/gmp.js"></script>
+    <script>
+        var ca = new GMP({
+            el: '#ca',
+            data: {
+                name: 'zeromike'
+            },
+            template:GMP.template('catmpl'),
+            init: function(){
+                this.render();
+                var that = this;
+                GMP.GMPEvents.on('gmp_list', function(data) {
+                    that.data.name = data;
+                    that.render();
+                })
+            },
+            render: function() {
+                this.$el.html(this.template(this.data));
+            }
+        });
+
+        var cb = new GMP({
+            el: '#cb',
+            template:GMP.template('cbtmpl'),
+            events: {
+              'click #btn': 'submit'
+            },
+            submit: function() {
+                GMP.GMPEvents.trigger('gmp_list', $('#name').val());
+            },
+            init: function(){
+                this.render();
+            },
+            render: function() {
+                this.$el.html(this.template());
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/underscore/underscore-min.js"></script>
+    <script src="../dist/gmp.js"></script>
+    <script src="../node_modules/art-template/dist/template.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="home" style="background-color: red">My home</div>
+        <div id="work">My work</div>
+        <div id="buttonDiv" >My button</div>
+    </div>
+    <!--<ul>
+        {{each list as value i}}
+        <li>索引 {{i + 1}} ：{{value}}</li>
+        {{/each}}
+    </ul>-->
+    <script id="list" type="text/html">
+        <h1><%=title%></h1>
+
+    </script>
+    <script id="buttons" type="text/html">
+        <button id="remove" gmp-id="remove">我就是个button</button>
+    </script>
+    <script>
+        // widgets
+        /*var Person = GMP.Class(GMP.BaseClass, {
+            data: {
+                name: 'zeromike',
+                location: 'Beijing'
+            },
+            initialize: function () {
+                this.components
+                // console.log("initialize....", arguments, _.assign(this.data, arguments[0]));
+            },
+            CLASS_NAME: 'Person'
+        })
+        var person = new Person({
+            gender: 'male'
+        });
+
+        console.log(person.CLASS_NAME);*/
+
+        //core
+        var state = {
+          userId: '123',
+          loginDate: '2016-10-18',
+          man: {
+              age :25,
+              clothes: {
+                  leg: 'red'
+              }
+          }
+        };
+        var g = new GMP.GMPX(state);
+       // console.log(g);
+       var con = new GMP({
+            appName: 'index',
+            data: {
+                name: 'zeromike',
+                location: 'Beijing',
+                arr: ['a', 'b', 'c']
+            },
+            el: '#container',
+            template: {
+               listTemplate: GMP.template('list')
+            },
+            init: function () {
+                console.log("init.....", g.state.man.age);
+                g.state.man.age = 30;
+                var data = {
+                    title: '标签',
+                    list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+                };
+                this.data.data = data;
+                /*GMP.GMPEvents.on("GMPEvents_showme", function(){
+                    console.log("on showme on....");
+                });*/
+                this.on("change:name",function() {
+                    console.log("change it ....改了...");
+                });
+                this.render();
+            },
+            events: {
+                'click #home': 'changeColor',
+                'click #work': 'clickIt'
+            },
+            changeColor: function (e) {
+                console.log('changeColor.....');
+//                this.data.arr.push('bc');
+                 this.data.name = "z";
+                //GMP.GMPEvents.trigger("GMPEvents_showme");
+            },
+            clickIt: function(e) {
+                console.log('clickIt.....', e, $(e.target).attr('id'));
+               // GMP.GMPEvents.off("GMPEvents_showme");
+                //this.data.name = 'zhangzhao';
+               /* this.data.data = {
+                    title: '标签',
+                    list: ['BBB', 'AAA']
+                };
+                this.render();*/
+            },
+            render: function() {
+                var html = GMP.template('list')(this.data.data);
+                console.log(html);
+                document.getElementById('home').innerHTML = html;
+            }
+        });
+        //console.log(con.changeColor());
+
+        /*var Sub  = GMP.extend({
+            data: {},
+            init: function (){
+                console.log("init...");
+            },
+            events: {
+
+            }
+        })
+        var Child = Sub.extend({
+            data: {},
+            init: function (){
+                console.log("init...");
+            },
+            events: {
+
+            }
+        });
+        console.log(new Child({
+            data: {},
+            init: function (){
+                console.log("init...aaaabbbb");
+            },
+            events: {
+
+            }
+        }));*/
+        /*var button = new GMP.Widgets.Button({
+            data: {},
+            el: '#buttonDiv',
+            template: {
+                buttonTemplate: template('buttons')
+            },
+            init: function (){
+                console.log("button init...", this);
+                this.render();
+                this.disable();
+                var that = this;
+                setTimeout(function(){
+                    that.enable();
+                },2000);
+            },
+            events: {
+                'click #remove': 'remove'
+            },
+            render: function(){
+                var button = this.template.buttonTemplate();
+                console.log(button);
+                document.getElementById('buttonDiv').innerHTML = button;
+            },
+            remove: function() {
+                con.destroy();
+            }
+        });*/
+
+        /*GMP.Widgets.register("NewWidgets", {
+            open: function() {
+                console.log('open it....');
+            }
+        });
+        var newWidgets = new GMP.Widgets.NewWidgets({
+            init: function() {
+                console.log("init NewWidgets....");
+                this.open();
+            }
+        });
+        console.log(newWidgets);
+
+        var NewModal = GMP.Widgets.Modal.inherits({
+
+        })
+        var nm = new NewModal({
+
+        });
+        nm.open();*/
+    </script>
+</body>
+</html>

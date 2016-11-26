@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Button</title>
+    <link rel="stylesheet" href="./widgets.button.css">
+</head>
+<body>
+<div id="container">
+    <div id="yesContainer"></div>
+    <p></p>
+    <div id="noContainer"></div>
+</div>
+<script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../../dist/gmp.js"></script>
+
+<script>
+    new GMP.Widgets.Button({
+        data: {
+            value: '确定',
+            id: 'yesBtn'
+        },
+        el: '#yesContainer',
+        init: function(){
+            console.log('我是按钮');
+        },
+        events: {
+          'click #yesBtn': 'yes'
+        },
+        yes: function (){
+            var that = this;
+            this.disable();
+            setTimeout(function() {
+                that.enable();
+            }, 2000);
+        }
+    });
+</script>
+</body>
+</html>

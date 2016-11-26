@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script id="tmpl" type="text/html">
+    <ul>
+        <% for (var i = 0, len = list.length; i < len; i++) {%>
+        <li><%=list[i]%></li>
+        <%}%>
+    </ul>
+    <div id="form"></div>
+</script>
+<script id="ftmpl" type="text/html">
+    <p><%=name%></p>
+    <input type="text" id="name" value="<%=name%>">
+    <button id="sBtn">修改</button>
+</script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../dist/gmp.js"></script>
+<script>
+    new GMP({
+        el: '#container',
+        data: {
+            name: 'zeromike',
+            list: ['鸣人', '佐助', '我爱罗', '春野樱']
+        },
+        events: {
+          'click #sBtn': 'submit'
+        },
+        submit: function() {
+          this.data.name = $('#name').val();
+        },
+        template:{
+            list: GMP.template('tmpl'),
+            form: GMP.template('ftmpl')
+        },
+        init: function(){
+            this.render();
+            this.on("change:name", this.renderForm);
+        },
+        render: function() {
+            $('#container').html(this.template.list(this.data));
+            this.renderForm();
+        },
+        renderForm: function() {
+            $('#form').html(this.template.form(this.data));
+        }
+    });
+</script>
+</body>
+</html>

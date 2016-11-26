@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../../dist/gmp.js"></script>
+    <script src="../../../node_modules/art-template/dist/template.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div gmp-id="home" id="home" style="background-color: red">My home</div>
+        <div id="work">My work</div>
+        <div gmp-id="buttonDiv" id="buttonDiv" >My button</div>
+    </div>
+    <script id="list" type="text/html">
+        <h1>{{title}}</h1>
+        <ul>
+            {{each list as value i}}
+            <li>索引 {{i + 1}} ：{{value}}</li>
+            {{/each}}
+        </ul>
+    </script>
+    <script id="buttons" type="text/html">
+        <button>我就是个button</button>
+    </script>
+    <script src="./example.js"></script>
+</body>
+</html>

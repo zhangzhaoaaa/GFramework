@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit</title>
+</head>
+<body>
+<div id="container"></div>
+
+<script id="tmpl" type="text/html">
+    <form action="">
+        <input type="text" id="name" value="<%=name%>">
+        <input type="password" id="password" value="<%=password%>">
+        <button id="submitBtn">提交</button>
+    </form>
+</script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../dist/gmp.js"></script>
+<script>
+    new GMP({
+        el: '#container',
+        data: {
+            name: 'default',
+            password: ''
+        },
+        template: GMP.template('tmpl'),
+        events: {
+            'click #submitBtn': 'submit'
+        },
+        submit: function(){
+            this.data.name = $('#name').val();
+            this.data.password = $('#password').val();
+            alert('提交' + JSON.stringify(this.data));
+        },
+        init: function(){
+            this.render();
+        },
+        render: function() {
+            $('#container').html(this.template(this.data));
+        }
+    });
+</script>
+</body>
+</html>

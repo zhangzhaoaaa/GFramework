@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm</title>
+    <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="divBtn"><button id="reg">注册</button></div>
+<div id="mask"></div>
+<script src="../../../../dist/gmp.js"></script>
+<script id="form" type="text/html">
+    <input type="text">
+    <button>aaaa</button>
+</script>
+<script>
+    var modal = new GMP.Widgets.Modal({
+        data: {
+            title: 'aaa',
+            header: '',
+            content: '#form',
+            footer: ''
+        }/*,
+        ok: function() {
+            this.close();
+        }*/,
+        init: function() {
+            this.open();
+        }
+    });
+     console.log(modal);
+    var com =new GMP({
+        el: '#divBtn',
+        events: {
+            'click #reg': 'openDialog'
+        },
+        init: function() {
+
+        },
+        openDialog:function() {
+            modal.open();
+        }
+    })
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+*{
+    padding:0;
+    margin:0;
+}
+.layer{
+    position:fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.6);
+}
+.dialog{
+    position:fixed;
+    left:50%;
+    top:50%;
+    z-index:1001;
+    width:400px;
+    overflow:hidden;
+    font-family:Helvetica,'Microsoft Yahei';
+    transform: translate(-50%,-50%);
+    background:#fff;
+    border-radius:4px;
+}
+.dialog-header{
+    padding:10px 15px;
+    font-size:14px;
+    font-weight:400;
+    background:#ededed;
+}
+.dialog-content{
+    padding:15px;
+    font-size:14px;
+    line-height:1.5;
+}
+.dialog-footer a{
+    position:relative;
+    float:left;
+    display:block;
+    padding:10px 20px;
+    width:50%;
+    font-size:14px;
+    text-align:center;
+    background:#dcdcdc;
+    color:#333;
+    text-decoration:none;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+.dialog-footer a:hover{
+    color:#333;
+    text-decoration:none;
+    background:#bcbcbc;
+}
+.dialog-footer a:first-child:after{
+    content:'';
+    display:block;
+    position:absolute;
+    right:0;
+    top:0;
+    width:1px;
+    height:100%;
+    background:#c5c5c5;
+}

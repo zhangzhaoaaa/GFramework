@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/_base.css">
+    <link rel="stylesheet" href="../css/agate.min.css">
+    <script src="../plugins/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <title>
+    </title>
+</head>
+<body class="">
+<a class="sr-only sr-only-focusable" href="http://v3.bootcss.com/javascript/#content">Skip to main content</a>
+
+<!-- Docs master nav -->
+
+<!-- Docs page layout -->
+<div class="bs-docs-header" id="content">
+    <div class="container">
+        <h1>UI Widgets</h1>
+
+        <p>Documents</p>
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+            <!-- Events -->
+            <div class="bs-docs-section">
+                <h1 id="modals" class="page-header">Events
+                    <small></small>
+                </h1>
+                <p>UI内部事件系统。</p>
+
+                <h2 id="modals-examples">实例</h2>
+
+                <p>BlaBlaBla</p>
+
+<pre><code class="js">
+var gmp = new GMP({
+    init: function() {
+        this.on('eventName', function(args){
+            console.log(args);
+        });
+    }
+});
+gmp.trigger( 'eventName', 1, 2, 3 );
+
+</code></pre>
+                <h3>on</h3>
+
+                <p>on( name, fn )</p>
+<pre><code class="js">
+    参数:
+
+    name {String}事件名
+    callback {Function}事件处理器。
+
+    绑定事件。
+</code></pre>
+                <h3>off</h3>
+
+                <p>off(name)</p>
+<pre><code class="js">
+    参数:
+
+    name {String}事件名
+    解除事件绑定
+</code></pre>
+                <h3>trigger</h3>
+
+                <p>trigger(name[, ...] )</p>
+<pre><code class="js">
+    参数:
+
+    evt {String}事件名
+    {*}任意参数
+    触发事件
+</code></pre>
+            </div>
+            <!-- Dialog -->
+            <div class="bs-docs-section">
+                <h1 id="modals" class="page-header">Dialog
+                    <small></small>
+                </h1>
+                <p>Dialog经过了优化，更加灵活，以弹出对话框的形式出现，具有最小和最实用的功能集。</p>
+
+                <h2 id="modals-examples">实例</h2>
+
+                <h3>Alert实例</h3>
+
+                <p>BlaBlaBla</p>
+
+                <div class="bs-example " style="padding-bottom: 24px;">
+                    <iframe src="mobile/widgets/dialog/alert.html" width=100%
+                            height="350px" style="border:none;"></iframe>
+                </div><!-- /example -->
+  <pre><code class="js">
+      var a = new GMP.Widgets.Alert({
+      data: {
+      title: '提示',
+      msg: '你确定吗?'
+      }
+      /*,
+      el: '#container'*/
+      });
+      a.open();
+
+  </code></pre>
+                <h3>参数</h3>
+
+                <p></p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 100px;">名称</th>
+                            <th style="width: 50px;">类型</th>
+                            <th style="width: 50px;">默认值</th>
+                            <th>描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>data</td>
+                            <td>字符串</td>
+                            <td>''</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>el</td>
+                            <td>字符串</td>
+                            <td>''</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.table-responsive -->
+
+                <h3>方法</h3>
+
+                <h4>.open()</h4>
+
+                <p>手动打开Dialog。
+
+                <div class="zero-clipboard"><span class="btn-clipboard">Javascript</span></div>
+    <pre><code class="js">a.open()
+    </code></pre>
+                <h3>事件</h3>
+
+                <p></p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th style="width: 100px;">事件类型</th>
+                            <th>描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>data</td>
+                            <td>+</td>
+                        </tr>
+                        <tr>
+                            <td>el</td>
+                            <td>=</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.table-responsive -->
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
+                <ul class="nav bs-docs-sidenav">
+                    <li class="active">
+                        <a href="#events">Events</a>
+                    </li>
+                    <li>
+                        <a href="#dialog">Dialog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+    </div>
+</footer>
+</body>
+</html>

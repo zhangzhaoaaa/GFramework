@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posiotion</title>
+</head>
+<body>
+<div id="center" style="width:100px;height:100px;background:red;"></div>
+
+<div id="a" style="width:100px;height:100px;background:#ccc;"></div>
+<div id="b" style="width:100px;height:100px;background:#000;"></div>
+<script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../../../dist/gmp.js"></script>
+
+<script>
+GMP.Widgets.Position.centerInWindow('#center');
+
+GMP.Widgets.Position.pin('#a',{
+    x:10,
+    y:20
+},'#b');
+</script>
+</body>
+</html>

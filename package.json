@@ -1,0 +1,87 @@
+{
+  "name": "GMP",
+  "version": "1.1.2",
+  "description": "gomeplusJs libs",
+  "main": "dist/gmp.js",
+  "directories": {
+    "doc": "docs",
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test:unit": "./node_modules/.bin/karma start ./karma.conf.js",
+    "lint": "eslint src",
+    "dev": "./node_modules/.bin/rollup --env=dev -w -m -c build/config.js",
+    "wb": "webpack --config ./build/webpack.build.js",
+    "dui": "./node_modules/.bin/rollup --env=dui -w -m -c build/config.js",
+    "bjs": "node ./build/build.js --env=bjs",
+    "bui": "node ./build/build.js --env=bui",
+    "build": "node ./build/build.js --env=production",
+    "postbui": "node ./build/build4lithe.js",
+    "postbuild": "node ./build/build4lithe.js",
+    "doc": "./node_modules/.bin/jsdoc src -r -c build/jsdoc.config.json -d docs"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.intra.gomeplus.com/gomeplusFED/gomeplusJS.git"
+  },
+  "keywords": [
+    "javascript",
+    "libs"
+  ],
+  "author": "fuqiang,zhangzhao",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-class-properties": "^6.18.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "chai": "^3.5.0",
+    "escodegen": "^1.8.1",
+    "eslint": "^3.7.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-promise": "^3.0.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "esprima": "^3.1.0",
+    "estraverse": "^4.2.0",
+    "html-loader": "^0.4.4",
+    "jquery": "^3.1.1",
+    "jsdoc": "^3.4.2",
+    "jshint": "^2.9.4",
+    "karma": "^1.3.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-es6-shim": "^1.0.0",
+    "karma-mocha": "^1.2.0",
+    "karma-mocha-reporter": "^2.2.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^1.8.0",
+    "minimist": "^1.2.0",
+    "mocha": "^3.1.2",
+    "pre-commit": "^1.1.3",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-buble": "^0.14.0",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-postcss": "^0.2.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-watch": "^2.5.0",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "lodash": "^4.16.4",
+    "todomvc-app-css": "^2.0.6",
+    "todomvc-common": "^1.0.2",
+    "underscore": "^1.8.3"
+  }
+}
